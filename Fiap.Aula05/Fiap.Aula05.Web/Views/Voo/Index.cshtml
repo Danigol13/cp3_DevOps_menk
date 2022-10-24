@@ -1,0 +1,86 @@
+﻿@model List<Voo>
+
+@{
+    ViewData["Title"] = "Voos";
+}
+
+<h1>Voos</h1>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+<form class="row row-cols-lg-auto g-3 mb-3 align-items-center">
+    <div class=col-12>
+        <input type="text" name="origem" placeholder="Digite a origem" class="form-control" />
+    </div>
+    <div class="col-12">
+        <input type="checkbox" name="escala" id="escala" value="true"/>
+        <label for="escala">Escala</label>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-success">Pesquisar</button>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <th>Origem</th>
+        <th>Destino</th>
+        <th>Duração</th>
+        <th>Data</th>
+        <th>Escala</th>
+        <th>Código Frequência</th>
+        <th>Data Ativação</th>
+        <th></th>
+    </tr>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.Origem</td>
+            <td>@v.Destino</td>
+            <td>@v.Duracao</td>
+            <td>@v.Data</td>
+            <td>@(v.Escala?"Sim":"Não")</td>
+            <td>@v.Frequencia?.CodigoFrequencia</td>
+            <td>@v.Frequencia?.DataAtivacao</td>
+            <td>
+                <a asp-action="editar" class="btn btn-dark btn-sm"
+               asp-route-id="@v.VooId">Editar</a>
+                <!-- Button trigger modal -->
+                <button onclick="VooId.value = @v.VooId" type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Excluir
+                </button>
+                <a asp-action="detalhar" class="btn btn-warning btn-sm"
+                                                        asp-route-id="@v.VooId">Detalhes</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o voo?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover">
+                    <input type="hidden" name="id" id="VooId"/>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
