@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/TF1O3Q3xLjJJztm5mQw4txatqx4d7Y3bfsUiwCeyLrP3p1kQJSzOpc0Biyr9kHxNvUJ3Q6QgxhgjBYjDlsoeg==",
+  "dgSpecHash": "ITevxFVHCP3W0OCG4AvmlTO/ZUhVXUmnr3HauFsJ5cY0qxNDYoJ6htQd0+O6D5TSSDGHmfnRFvq9a04MBoRVjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\CP3Menk\\Fiap.Aula05\\Fiap.Aula05.Web\\Fiap.Aula05.Web.csproj",
+  "projectFilePath": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\aaa\\cp3_DevOps_menk\\Fiap.Aula05\\Fiap.Aula05.Web\\Fiap.Aula05.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danid\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\danid\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

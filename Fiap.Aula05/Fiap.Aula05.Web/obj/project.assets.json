@@ -9854,11 +9854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\CP3Menk\\Fiap.Aula05\\Fiap.Aula05.Web\\Fiap.Aula05.Web.csproj",
+      "projectUniqueName": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\aaa\\cp3_DevOps_menk\\Fiap.Aula05\\Fiap.Aula05.Web\\Fiap.Aula05.Web.csproj",
       "projectName": "Fiap.Aula05.Web",
-      "projectPath": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\CP3Menk\\Fiap.Aula05\\Fiap.Aula05.Web\\Fiap.Aula05.Web.csproj",
+      "projectPath": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\aaa\\cp3_DevOps_menk\\Fiap.Aula05\\Fiap.Aula05.Web\\Fiap.Aula05.Web.csproj",
       "packagesPath": "C:\\Users\\danid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\CP3Menk\\Fiap.Aula05\\Fiap.Aula05.Web\\obj\\",
+      "outputPath": "C:\\Users\\danid\\OneDrive\\Área de Trabalho\\aaa\\cp3_DevOps_menk\\Fiap.Aula05\\Fiap.Aula05.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danid\\AppData\\Roaming\\NuGet\\NuGet.Config",
