@@ -1,10 +1,10 @@
 node {
 
-  def resourceGroupName = 'gr-CP3_devops'
+  def resourceGroupName = 'gr-CP3_devops3'
   def resourceGroupLocation = 'brazilsouth'
   def appServicePlanName = 'DevopsPlan'
   def appServicePlanTier = 'FREE'
-  def webAppName = 'devops-rm88532'
+  def webAppName = 'devops3-rm88532'
   def webAppRuntime = '"dotnet:6"'
   def packagePath = 'target.zip'
  
@@ -15,18 +15,15 @@ stage('Extrair Codigo Fonte') {
      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Danigol13/cp3_DevOps_menk.git']]])
    }
 
-   /*stage('Build') {
+   stage('Build') {
      echo 'Realizando o Build...'
-     //sh 'cd Fiap.Aula05'
-     sh 'dotnet restore Fiap.Aula05/Fiap.Aula05.Web/Fiap.Aula05.Web.csproj'
-     sh 'dotnet build --configuration Release Fiap.Aula05/Fiap.Aula05.Web/Fiap.Aula05.Web.csproj'
-     sh 'dotnet publish --configuration Release Fiap.Aula05/Fiap.Aula05.sln -o publish'
-     sh 'cd publish'
-     sh 'zip -r ../target.zip *'
+     sh 'dotnet publish --configuration Release Fiap.Aula05.sln -o publish'
+     sh ' cd publish && zip -r ../target.zip .'
      sh 'cd ..'
+     sh 'ls'
      //sh 'zip -r target.zip publish'
      
-   }*/
+   }
    stage('Credenciais Azure') {
     echo 'Obtendo credenciais...'
     withCredentials([usernamePassword(credentialsId: 'AzureService', 
@@ -41,7 +38,7 @@ stage('Extrair Codigo Fonte') {
   stage('Criar Infra') {
    echo 'Criando o Grupo de Recursos...'
    sh "az group create --name $resourceGroupName --location $resourceGroupLocation"
-   echo 'Criando Plano de Serviço...'
+   echo 'Criando Plano de ServiÃ§o...'
    sh "az appservice plan create --name $appServicePlanName --resource-group $resourceGroupName --sku $appServicePlanTier"
    echo 'Criando o Web App...'
    sh "az webapp create --name $webAppName --plan $appServicePlanName --resource-group $resourceGroupName"
@@ -51,10 +48,9 @@ stage('Extrair Codigo Fonte') {
  stage('Deploy') {
     echo 'Realizando o Deploy na Azure...'
     //sh "az webapp deploy --resource-group $resourceGroupName --name $webAppName --src-path target.zip --type zip"
-    //sh "az webapp deployment source config-zip -n $webAppName -g $resourceGroupName --src target.zip"
-    sh "az webapp deployment source config -n $webAppName -g $resourceGroupName --repo-url https://github.com/Danigol13/cp3_DevOps_menk --branch master --manual-integration"
+    sh 'ls'
+    sh "az webapp deployment source config-zip -n $webAppName -g $resourceGroupName --src target.zip"
+    //sh "az webapp deployment source config -n $webAppName -g $resourceGroupName --repo-url https://github.com/Danigol13/cp3_DevOps_menk --branch master --manual-integration"
  }
 
 }
- 
-
